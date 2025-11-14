@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* ✅ Importación de PT Sans desde Google Fonts */}
+        {/* Importación de PT Sans desde Google Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
           rel="stylesheet"

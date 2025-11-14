@@ -1,0 +1,135 @@
+.navbar {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f6c8c7;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center; /* centrado en desktop */
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #4b2e2e;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #000;
+}
+
+/* Botón separado "Felicitar" solo desktop */
+.nav-special-desktop {
+  position: fixed;
+  top: 1.8rem;
+  left: calc(50% + 150px);
+  z-index: 1001;
+}
+
+.nav-special-desktop a {
+  text-decoration: none;
+  color: #4b2e2e;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #4b2e2e;
+  border-radius: 999px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-special-desktop a:hover {
+  background: #4b2e2e;
+  color: white;
+}
+
+/* Botón Felicitar dentro del menú móvil */
+.nav-special-mobile a {
+  text-decoration: none;
+  color: #4b2e2e;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-special-mobile a:hover {
+  color: white;
+}
+
+/* Botón hamburguesa */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4b2e2e;
+  background: none;
+  border: none;
+}
+
+/* ✅ Responsive en un solo bloque */
+@media (max-width: 768px) {
+  .navbar {
+    left: 15;                  /* 👈 ya no centrado */
+    transform: none;          /* 👈 elimina el translate */
+    width: auto;              /* 👈 ocupa todo el ancho */
+    justify-content: flex-end;/* 👈 toggle a la derecha */
+  }
+
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  /* Ocultar botón separado en móviles */
+  .nav-special-desktop {
+    display: none;
+  }
+
+  /* Mostrar Felicitar dentro del menú hamburguesa */
+  .nav-special-mobile {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fffdfd;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Ocultar Felicitar dentro del menú en desktop */
+  .nav-special-mobile {
+    display: none;
+  }
+}
