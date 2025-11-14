@@ -71,6 +71,9 @@ export default function Book() {
         swipeDistance={30}
         showPageCorners={true}
         disableFlipByClick={false}
+        style={{}}             
+        startPage={0}        
+        maxShadowOpacity={0.5}  
       >
         {/* Portada principal */}
         <div className="demoPage page cover" style={{ position: 'relative' }}>
