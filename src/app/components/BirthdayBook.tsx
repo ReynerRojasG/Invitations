@@ -34,35 +34,40 @@ const finalPage = {
 };
 
 export default function Book() {
-  const [size, setSize] = useState({ width: 300, height: 400 });
+  const [size, setSize] = useState({ width: 100, height: 200 });
+  const [portrait, setPortrait] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setSize({ width: 220, height: 300 }); // 👈 tamaño más pequeño en móviles
+        setSize({ width: 220, height: 300 });
+        setPortrait(true);
       } else {
         setSize({ width: 300, height: 400 });
+        setPortrait(false);
       }
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  return (
+
+  return ( 
     <div className="container">
+      <h2 className="book-title">Libreta de información</h2>
       <HTMLFlipBook
-        width={300}
-        height={400}
-        showCover={true}
+        width={size.width}
+        height={size.height}
+        showCover={false}
         size="stretch"
         className="demoBook"
-        minWidth={315}
-        maxWidth={1000}
-        minHeight={400}
-        maxHeight={1536}
+        minWidth={size.width}
+        maxWidth={size.width}
+        minHeight={size.height}
+        maxHeight={size.height}
         drawShadow={true}
         flippingTime={1000}
-        usePortrait={false}
+        usePortrait={portrait}
         mobileScrollSupport={true}
         useMouseEvents={true}
         clickEventForward={true}

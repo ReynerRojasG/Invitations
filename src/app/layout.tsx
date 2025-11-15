@@ -15,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Importación de PT Sans desde Google Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
           rel="stylesheet"
@@ -27,7 +26,15 @@ export default function RootLayout({
         }}
         className="antialiased bg-gradient-to-b from-[#f6c8c7] to-[#fffdfd] text-black min-h-screen"
       >
-        {children}
+        {/* 👇 Contenedor relativo */}
+        <div className="page-wrapper">
+          {children}
+
+          {/* 👇 Olas al final del contenido */}
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+        </div>
       </body>
     </html>
   );

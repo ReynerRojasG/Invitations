@@ -15,6 +15,16 @@
   gap: 2rem;
 }
 
+.navbar-wrapper {
+  position: fixed;       /* 👈 mantiene todo el bloque fijo */
+  top: 0;
+  left: 0;
+  width: 100%;           /* 👈 ocupa todo el ancho */
+  z-index: 1000;         /* 👈 encima del contenido */
+  backdrop-filter: blur(8px); /* 👈 efecto blur */
+  background: rgba(246, 200, 199, 0.8); /* 👈 semitransparente para que se note el blur */
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -81,6 +91,28 @@
   color: #4b2e2e;
   background: none;
   border: none;
+}
+
+.header-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-image: url('https://res.cloudinary.com/doxlqpwtt/image/upload/v1763174927/header-bg-color_je9w22.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 900;
+  transition: all 0.3s ease; /* 👈 transición suave */
+}
+
+/* 🚫 Ocultar header background SOLO en móviles */
+@media (max-width: 768px) {
+  .header-background {
+    display: none !important;
+  }
 }
 
 /* ✅ Responsive en un solo bloque */

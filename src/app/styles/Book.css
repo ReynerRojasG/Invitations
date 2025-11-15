@@ -4,6 +4,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
@@ -11,10 +12,18 @@
   overflow: hidden;
 }
 
+.book-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 3rem; 
+}
 /* Página del libro */
 .demoPage {
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   background: #fffdfd;
   border: 1px solid #ccc;
   padding: 2rem;
@@ -45,6 +54,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .page-content h2 {
+    font-size: 1.1rem !important; /* 👈 fuerza el tamaño en móviles */
+  }
+
+  .page-content p {
+    font-size: 0.65rem !important; /* 👈 opcional: achica también el contenido */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content h2 {
+    font-size: 1rem !important;
+  }
+
+  .page-content p {
+    font-size: 0.6rem !important;
+  }
 }
 
 /* Animación suave de entrada */
@@ -151,5 +180,9 @@
 
 .tag-mascotas {
   background-color: #f39c12;
+}
+
+.no-swipe {
+  pointer-events: none; /* bloquea interacción */
 }
 
