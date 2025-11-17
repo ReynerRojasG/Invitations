@@ -99,9 +99,9 @@
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
-    color: white;       /* 👈 igual que la ✕ */
-    background: none;   /* 👈 sin fondo */
-    border: none;       /* 👈 sin borde */
+    color: white;       
+    background: none;  
+    border: none;      
     z-index: 2100;
     /* Animación al aparecer */
     animation: fadeSlideIn 0.3s ease forwards;
@@ -137,7 +137,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     padding: 8rem 1.5rem 2rem;
 

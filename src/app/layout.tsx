@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import "./styles/App.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Formulario de Felicitaciones",
@@ -26,11 +27,9 @@ export default function RootLayout({
         }}
         className="antialiased bg-gradient-to-b from-[#f6c8c7] to-[#fffdfd] text-black min-h-screen"
       >
-        {/* 👇 Contenedor relativo */}
         <div className="page-wrapper">
           {children}
-
-          {/* 👇 Olas al final del contenido */}
+        <Toaster position="bottom-right" reverseOrder={false} />
           <div className="wave"></div>
           <div className="wave"></div>
           <div className="wave"></div>

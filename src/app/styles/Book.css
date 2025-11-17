@@ -15,11 +15,12 @@
 .book-title {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #000;
+  color: #4b2e2e;
   margin-bottom: 1rem;
   text-align: center;
   margin-bottom: 3rem; 
 }
+
 /* Página del libro */
 .demoPage {
   width: 100%;
@@ -58,11 +59,11 @@
 
 @media (max-width: 768px) {
   .page-content h2 {
-    font-size: 1.1rem !important; /* 👈 fuerza el tamaño en móviles */
+    font-size: 1.1rem !important; 
   }
 
   .page-content p {
-    font-size: 0.65rem !important; /* 👈 opcional: achica también el contenido */
+    font-size: 0.65rem !important; 
   }
 }
 
@@ -155,31 +156,31 @@
   transform: scale(1.05);
 }
 
-.anne-tag {
+.tags {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 3px 10px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: clamp(0.6rem, 1.5vw, 0.9rem);
   font-weight: 500;
   color: white;
-  margin: 5px;
+  margin: 0 3px 5px 3px;
 }
 
 /* Temas personalizados */
-.tag-anne {
-  background-color: #e8a1b0;
-}
-
-.tag-harry {
+.tag-tobby {
   background-color: #6d4c41;
 }
 
-.tag-snoopy {
+.tag-kai {
+  background-color: #e8a1b0;
+}
+
+.tag-copito {
   background-color: #34495e;
 }
 
-.tag-mascotas {
-  background-color: #f39c12;
+.tag-oli {
+  background-color: #08964a;
 }
 
 .no-swipe {

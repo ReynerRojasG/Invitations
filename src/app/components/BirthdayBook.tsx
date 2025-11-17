@@ -4,29 +4,24 @@ import HTMLFlipBook from 'react-pageflip';
 import { useEffect, useState } from 'react';
 
 const birthdayPage = {
-  title: '📅 04 de diciembre de 2004',
-  content: 'Ese día nació alguien especial. Hoy, 21 años después, agradecemos todo lo que es: creativa, sensible, brillante y amorosa.',
+  title: '📅 04/12/2004',
+  content: 'Ese día nació alguien especial. Por eso hoy, 21 años después, agradecemos todo lo que eres: creativa, sensible, brillante y amorosa.',
 };
 
 const passionsPages = [
   {
     title: '🌸 Anne with an E',
-    content: 'Tu amor por Anne Shirley es un reflejo de tu espíritu libre, curioso y lleno de imaginación. Como ella, ves belleza en lo simple y fuerza en lo sensible.',
+    content: 'Como Anne Shirley tienes un espíritu libre, curioso y lleno de imaginación. Como ella, ves belleza en lo simple y fuerza en lo sensible.',
   },
   {
     title: '🧙‍♂️ Harry Potter',
-    content: 'Desde Hogwarts hasta Hogsmeade, tu corazón ha viajado con magia. Eres una mezcla perfecta entre la valentía de Hermione y la ternura de Luna Lovegood.',
+    content: 'Desde Hogwarts hasta Hogsmeade, tu corazón es mágico. Reflejas la valentía de Hermione y la ternura de Luna Lovegood.',
   },
   {
     title: '🐶 Snoopy',
-    content: 'Tu cariño por Snoopy dice mucho: te encantan los personajes que combinan humor, ternura y un toque filosófico. Como él, sabes disfrutar de los pequeños placeres.',
+    content: 'Como él, sabes disfrutar de las pequeñas cosas, además eres igual de tierna y dulce.',
   },
 ];
-
-const petsPage = {
-  title: '🐾 Tobey, Kay y Copito',
-  content: 'Tus mascotas han sido parte de tu historia, cada una dejando huellas únicas. Tobey con su energía, Kay con su dulzura, y Copito con su ternura blanca.',
-};
 
 const finalPage = {
   title: '💖 Gracias por existir',
@@ -128,11 +123,48 @@ export default function Book() {
           </div>
         </div>
 
-        {/* Mascotas */}
+        {/* Tobby */}
         <div className="demoPage page">
           <div className="page-content">
-            <h2>{petsPage.title}</h2>
-            <p>{petsPage.content}</p>
+            <div className="anne-container">
+              <img
+                src="https://res.cloudinary.com/doxlqpwtt/image/upload/v1763341995/tobby_uqetcc.jpg"
+                alt="Tobby"
+              />
+            </div>
+            <span className="tags tag-tobby">Tobby</span>
+            <p>Lleno de energía y alegría, refleja que la felicidad llega cuando tú estás.</p>
+          </div>
+        </div>
+
+        {/* Kai y Copito */}
+        <div className="demoPage page">
+          <div className="page-content">
+            <div className="anne-container">
+              <img
+                src="https://res.cloudinary.com/doxlqpwtt/image/upload/v1763341998/kai_y_copito_cenjqs.jpg"
+                alt="Kai y Copito"
+              />
+            </div>
+            <div>
+              <span className="tags tag-kai">Kai</span>
+              <span className="tags tag-copito">Copito</span>
+            </div>
+            <p>Tus conejitas son tu preciado tesoro, habla mucho de lo cuidadosa que eres con todo.</p>
+          </div>
+        </div>
+
+        {/* Oli */}
+        <div className="demoPage page">
+          <div className="page-content">
+            <div className="anne-container">
+              <img
+                src="https://res.cloudinary.com/doxlqpwtt/image/upload/v1763341995/oli_plrxrs.jpg"
+                alt="Oli"
+              />
+            </div>
+            <span className="tags tag-oli">Oli</span>
+            <p>Tu periquito fue tu fiel acompañante, es por eso que eres única hasta el final.</p>
           </div>
         </div>
 

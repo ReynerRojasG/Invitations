@@ -1,6 +1,6 @@
 import BirthdayBook from './components/BirthdayBook';
 import Navbar from './components/NavBar';
-import Note from './components/Note'; // 👈 importa tu nuevo componente
+import Note from './components/Note';
 
 export default function Home() {
   
@@ -23,7 +23,6 @@ export default function Home() {
           <BirthdayBook />
         </section>
 
-        {/* 👇 Nueva sección para la nota */}
         <section id="felicitar" className="section">
           <Note />
         </section>
