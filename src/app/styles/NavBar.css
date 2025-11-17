@@ -10,21 +10,22 @@
   z-index: 1000;
 
   display: flex;
-  justify-content: center; /* centrado en desktop */
+  justify-content: center;
   align-items: center;
   gap: 2rem;
 }
 
 .navbar-wrapper {
-  position: fixed;       /* 👈 mantiene todo el bloque fijo */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;           /* 👈 ocupa todo el ancho */
-  z-index: 1000;         /* 👈 encima del contenido */
-  backdrop-filter: blur(8px); /* 👈 efecto blur */
-  background: rgba(246, 200, 199, 0.8); /* 👈 semitransparente para que se note el blur */
+  width: 100%;
+  z-index: 1000; /* base del navbar */
+  backdrop-filter: blur(8px);
+  background: rgba(246, 200, 199, 0.8);
 }
 
+/* Desktop links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -40,19 +41,15 @@
   font-size: 1rem;
   transition: color 0.3s ease;
 }
+.nav-links li a:hover { color: #000; }
 
-.nav-links li a:hover {
-  color: #000;
-}
-
-/* Botón separado "Felicitar" solo desktop */
+/* Botón desktop */
 .nav-special-desktop {
   position: fixed;
   top: 1.8rem;
   left: calc(50% + 150px);
   z-index: 1001;
 }
-
 .nav-special-desktop a {
   text-decoration: none;
   color: #4b2e2e;
@@ -63,105 +60,142 @@
   background: transparent;
   transition: all 0.3s ease;
 }
+.nav-special-desktop a:hover { background: #4b2e2e; color: white; }
 
-.nav-special-desktop a:hover {
-  background: #4b2e2e;
-  color: white;
-}
-
-/* Botón Felicitar dentro del menú móvil */
-.nav-special-mobile a {
-  text-decoration: none;
-  color: #4b2e2e;
-  font-weight: 700;
-  padding: 0.6rem 1.2rem;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-
-.nav-special-mobile a:hover {
-  color: white;
-}
-
-/* Botón hamburguesa */
+/* Botón hamburguesa (solo móvil) */
 .nav-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
   color: #4b2e2e;
   background: none;
   border: none;
 }
 
+/* Header background */
 .header-background {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
+  top: 0; left: 0;
+  width: 100%; height: 80px;
   background-image: url('https://res.cloudinary.com/doxlqpwtt/image/upload/v1763174927/header-bg-color_je9w22.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.3;
   z-index: 900;
-  transition: all 0.3s ease; /* 👈 transición suave */
+  transition: all 0.3s ease;
 }
 
-/* 🚫 Ocultar header background SOLO en móviles */
+
+
+/* Mobile */
 @media (max-width: 768px) {
-  .header-background {
-    display: none !important;
+  .header-background { display: none !important; }
+  
+  .mobile-hamburger {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;       /* 👈 igual que la ✕ */
+    background: none;   /* 👈 sin fondo */
+    border: none;       /* 👈 sin borde */
+    z-index: 2100;
+    /* Animación al aparecer */
+    animation: fadeSlideIn 0.3s ease forwards;
   }
-}
 
-/* ✅ Responsive en un solo bloque */
-@media (max-width: 768px) {
   .navbar {
-    left: 15;                  /* 👈 ya no centrado */
-    transform: none;          /* 👈 elimina el translate */
-    width: auto;              /* 👈 ocupa todo el ancho */
-    justify-content: flex-end;/* 👈 toggle a la derecha */
+    left: 0;
+    transform: none;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    background: none; 
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .nav-toggle {
     display: block;
-    margin-left: auto;
+    color: #fff;
+    z-index: 1500;
   }
 
-  /* Ocultar botón separado en móviles */
-  .nav-special-desktop {
-    display: none;
-  }
-
-  /* Mostrar Felicitar dentro del menú hamburguesa */
-  .nav-special-mobile {
-    display: block;
-  }
-
+  /* Sidebar sólido móvil */
   .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: #fffdfd;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 72%;
+    max-width: 300px;
+    background: #732b29;
+    color: white;
+
+    display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    display: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    gap: 2rem;
+    padding: 8rem 1.5rem 2rem;
+
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.3);
+    z-index: 2000;
+  }
+  .nav-links.open { transform: translateX(0); }
+
+  .nav-links li a {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+  }
+  .nav-links li a:hover { color: #ffeaea; }
+
+  /* Botón de cierre dentro del sidebar */
+  .nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    z-index: 2100;
+
+    /* Animación al aparecer */
+    animation: fadeSlideIn 0.3s ease forwards;
   }
 
-  .nav-links.open {
-    display: flex;
+  /* Keyframes para animación */
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) rotate(-90deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg);
+    }
   }
+
+  /* Ocultar botón desktop y mostrar el móvil */
+  .nav-special-desktop { display: none; }
+  .nav-special-mobile { display: block; }
 }
 
+/* Desktop: oculta la versión móvil del link Felicitar y la X */
 @media (min-width: 769px) {
-  /* Ocultar Felicitar dentro del menú en desktop */
-  .nav-special-mobile {
-    display: none;
-  }
+  .nav-special-mobile { display: none; }
+  .nav-close { display: none !important; }
+  .mobile-hamburger { display: none !important; }
+}
+html {
+  scroll-behavior: smooth;
 }

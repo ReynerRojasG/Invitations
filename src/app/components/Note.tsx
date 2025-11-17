@@ -18,6 +18,7 @@ export default function Note() {
   return (
     <div className="note-container">
       <h2 className="note-title">Enviar felicitación</h2>
+      <p>Tu nota se convertirá en una notita física para el cumpleaños de Anne, procura que sea breve y si lo deseas extender puedes decírselo en privado el 04 de diciembre.</p>
       <form className="note-form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -28,7 +29,7 @@ export default function Note() {
           required
         />
         <textarea
-          placeholder="Escribe tu mensaje..."
+          placeholder={`Nota de ejemplo: Feliz día Anne, gracias por ser una persona tan especial para nosotros.`}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className="note-textarea"

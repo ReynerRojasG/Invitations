@@ -76,3 +76,7 @@
   background: #4b2e2e;
   color: white;
 }
+.note-input,
+.note-textarea {
+  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+}

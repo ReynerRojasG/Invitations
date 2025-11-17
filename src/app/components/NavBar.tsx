@@ -6,27 +6,41 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="navbar-wrapper">
-      {/* Contenedor principal del navbar */}
-      <nav className="navbar">
-        {/* Botón hamburguesa (solo visible en móviles) */}
-        <div className="nav-toggle" onClick={() => setOpen(!open)}>
+    <>
+      {/* 🔥 Botón hamburguesa EN MÓVILES independizado del navbar */}
+      {!open && (
+        <button 
+          className="mobile-hamburger"
+          onClick={() => setOpen(true)}
+        >
           ☰
+        </button>
+      )}
+
+      <div className="navbar-wrapper">
+
+        <nav className="navbar">
+          {/* Sidebar móvil */}
+          <ul className={`nav-links ${open ? 'open' : ''}`}>
+
+            {/* cierre del sidebar */}
+            <button className="nav-close" onClick={() => setOpen(false)}>
+              ✕
+            </button>
+
+            <li><a href="#home" onClick={() => setOpen(false)}>Home</a></li>
+            <li><a href="#conoce" onClick={() => setOpen(false)}>Conoce más</a></li>
+            <li className="nav-special-mobile">
+              <a href="#felicitar" onClick={() => setOpen(false)}>Felicitar</a>
+            </li>
+          </ul>
+        </nav>
+
+        {/* desktop button */}
+        <div className="nav-special-desktop">
+          <a href="#felicitar">Felicitar</a>
         </div>
-
-        {/* Links normales */}
-        <ul className={`nav-links ${open ? 'open' : ''}`}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#conoce">Conoce más</a></li>
-          {/* Felicitar dentro del menú en móviles */}
-          <li className="nav-special-mobile"><a href="#felicitar">Felicitar</a></li>
-        </ul>
-      </nav>
-
-      {/* Botón separado Felicitar (solo desktop) */}
-      <div className="nav-special-desktop">
-        <a href="#felicitar">Felicitar</a>
       </div>
-    </div>
+    </>
   );
 }
